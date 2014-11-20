@@ -1,9 +1,7 @@
 FROM switchback/builder
 
-ENV JAVA_VERSION 8u40
-
 RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk="$JAVA_VERSION"* maven && \
+    apt-get install -y openjdk-7-jdk maven && \
     rm -rf /var/lib/apt/lists/*
 
 # add script to run

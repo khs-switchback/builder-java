@@ -5,6 +5,11 @@ if [ -e "/var/default/maven/global.xml" ]; then
 	cat /var/default/maven/global.xml >> /etc/maven/settings.xml
 fi
 
+if [ -e "/var/project/maven/settings.xml" ]; then
+	mkdir -p $HOME/.m2
+	cat /var/project/maven/settings.xml >> $HOME/.m2/settings.xml
+fi
+
 echo Building Project
 if [ -e "/var/project/build/pre_run.sh" ]; then
 	echo Running pre build
@@ -12,7 +17,7 @@ if [ -e "/var/project/build/pre_run.sh" ]; then
 fi
 
 if [ -e "/var/project/build/run.sh" ]; then
-	echo Running pre build
+	echo Running build
 	/bin/bash /var/project/build/run.sh $1
 fi
 
