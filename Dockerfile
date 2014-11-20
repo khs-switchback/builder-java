@@ -9,5 +9,8 @@ RUN apt-get update && \
 # add script to run
 ADD *.sh /usr/local/bin/
 
+# set working directory
+WORKDIR /var/workspace
+
 # run
-CMD /bin/bash /usr/local/bin/run.sh $BUILD_NUMBER
+CMD /bin/bash /usr/local/bin/run.sh
