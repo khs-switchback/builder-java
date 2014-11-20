@@ -1,7 +1,7 @@
 FROM switchback/builder
 
 RUN apt-get update && \
-    apt-get install -y openjdk-7-jdk maven && \
+    apt-get install -y openjdk-6-jdk maven && \
     rm -rf /var/lib/apt/lists/*
 
 # add script to run
