@@ -1,12 +1,17 @@
 #!/bin/bash
 
 echo Building Project
-/bin/bash /var/settings/builder/pre_run.sh
+if [ e "/var/project/build/pre_run.sh" ]; then
+	echo Running pre build
+	/bin/bash /var/settings/build/pre_run.sh $1
+fi
 
-echo Running pre build
-/bin/bash /var/settings/builder/run.sh
+if [ e "/var/project/build/run.sh" ]; then
+	echo Running pre build
+	/bin/bash /var/settings/build/run.sh $1
+fi
 
-echo Running build
-/bin/bash /var/settings/builder/post_run.sh
-
-echo Running post build
+if [ e "/var/project/build/post_run.sh" ]; then
+	echo Running post build
+	/bin/bash /var/settings/build/post_run.sh $1
+fi

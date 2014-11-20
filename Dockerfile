@@ -10,4 +10,4 @@ RUN apt-get update && \
 ADD *.sh /usr/local/bin/
 
 # run
-CMD /bin/bash /usr/local/bin/run.sh
+CMD /bin/bash /usr/local/bin/run.sh $BUILD_NUMBER
